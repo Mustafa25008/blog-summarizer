@@ -56,8 +56,10 @@ src/
 🔐 Environment Variables
 Make sure you create a .env file at the root level with:
 
+```
 
-✨ Features
+# ✨ Features
+
 🔍 Blog content scraping via Supabase Edge Function
 
 🧠 AI-like summary generation logic
