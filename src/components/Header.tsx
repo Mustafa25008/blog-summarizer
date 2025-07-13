@@ -11,7 +11,7 @@ export const Header = () => {
               <Sparkles className="h-4 w-4 text-primary absolute -top-1 -right-1 animate-pulse" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold gradient-text">
+              <h1 className="text-2xl font-bold gradient-text animate-pulse">
                 AI Blog Summarizer
               </h1>
               <p className="text-sm text-muted-foreground">

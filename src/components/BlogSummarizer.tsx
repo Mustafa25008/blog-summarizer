@@ -406,7 +406,7 @@ export const BlogSummarizer = () => {
   return (
     <div className="container mx-auto p-6 space-y-8">
       <div className="text-center space-y-4 py-8">
-        <h2 className="text-5xl font-bold gradient-text leading-[1.4] mb-8">
+        <h2 className="text-5xl font-bold gradient-text leading-[1.4] mb-8 animate-pulse">
           Summarize Any Blog
         </h2>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -417,9 +417,9 @@ export const BlogSummarizer = () => {
 
       <Card className="max-w-2xl mx-auto glass-card">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Globe className="h-5 w-5" />
-            URL Input
+          <CardTitle className="flex items-center gap-2 mb-3">
+            <Globe className="h-5 w-5 animate-pulse" />
+            <span className="animate-bounce">URL Input</span>
           </CardTitle>
           <CardDescription>
             Paste the blog URL you want to summarize
@@ -436,7 +436,7 @@ export const BlogSummarizer = () => {
             <Button
               onClick={scrapeAndSummarize}
               disabled={loading}
-              className="min-w-[120px]"
+              className="min-w-[120px] "
             >
               {loading ? (
                 <>
@@ -444,7 +444,8 @@ export const BlogSummarizer = () => {
                   Processing...
                 </>
               ) : (
-                "Summarize"
+                <span className="text-black">Summarize</span>
+                
               )}
             </Button>
           </div>
@@ -510,7 +511,7 @@ export const BlogSummarizer = () => {
 
       {recentSummaries.length > 0 && (
         <Card className="max-w-4xl mx-auto glass-card">
-          <CardHeader>
+          <CardHeader className="space-y-3">
             <CardTitle>Recent Summaries</CardTitle>
             <CardDescription>
               Previously processed blog summaries

@@ -1,4 +1,4 @@
-import { Heart, Code, Zap } from "lucide-react";
+import { HeartPulse, Code, Zap } from "lucide-react";
 
 export const Footer = () => {
   return (
@@ -11,7 +11,7 @@ export const Footer = () => {
             </h3>
             <p className="text-muted-foreground text-sm">
               Powered by advanced AI to deliver accurate and concise blog summaries 
-              in multiple languages.
+              in Urdu language.
             </p>
           </div>
           
@@ -23,7 +23,7 @@ export const Footer = () => {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>• Instant web scraping</li>
               <li>• AI-powered summarization</li>
-              <li>• Multi-language support</li>
+              <li>• Translate to Urdu support</li>
               <li>• History management</li>
             </ul>
           </div>
@@ -43,9 +43,9 @@ export const Footer = () => {
         </div>
         
         <div className="border-t border-border/50 mt-8 pt-8 text-center">
-          <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
-            Made with <Heart className="h-4 w-4 text-red-500 animate-pulse" /> for better content consumption
-          </p>
+          <p className="text-white text-sm text-muted-foreground flex items-center justify-center gap-2">
+            &copy; {new Date().getFullYear()} Blog Summarizer. All rights reserved.
+            </p>
         </div>
       </div>
     </footer>
