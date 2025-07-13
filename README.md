@@ -4,7 +4,7 @@ Summarize lengthy blog posts into concise, meaningful summaries using AI — and
 
 ## 🌐 Live Demo
 
-👉 [Visit the Live Website](https://blog-summarizer-topaz.vercel.app/)
+👉 [Visit the Live Website](https://blog-summarizer-rei8hb0cs-muhammad-mustafas-projects-01398f2a.vercel.app/)
 
 ## 🚀 Project Overview
 
