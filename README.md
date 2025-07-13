@@ -43,10 +43,7 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_public_key
 
 # 4. Run the development server
 npm run dev
-
-```
-
-# 📁 Project Structure
+📁 Project Structure
 bash
 Copy
 Edit
