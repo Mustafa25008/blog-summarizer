@@ -253,6 +253,19 @@ const urduTranslations: Record<string, string> = {
   blog: "بلاگ",
   post: "پوسٹ",
   discover: "دریافت کرنا",
+  businesses: "کاروبار",
+  "businesses and": "کاروبار اور",
+  client: "کلائنٹ",
+  clients: "کلائنٹس",
+  selling: "فروخت",
+  sales: "فروخت",
+  monetize: "آمدنی",
+  monetization: "آمدنی",
+  skills: "مہارتیں",
+  by: "کی طرف سے",
+  "the best": "بہترین",
+  also: "بھی",
+  ".": "۔",
 };
 export const BlogSummarizer = () => {
   const [url, setUrl] = useState("");
