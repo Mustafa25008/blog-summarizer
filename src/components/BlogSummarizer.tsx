@@ -23,6 +23,7 @@ interface BlogSummary {
   created_at: string;
 }
 const urduTranslations: Record<string, string> = {
+  process: "عمل",
   technology: "ٹیکنالوجی",
   "artificial intelligence": "مصنوعی ذہانت",
   "machine learning": "مشین لرننگ",
