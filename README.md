@@ -56,12 +56,6 @@ src/
 🔐 Environment Variables
 Make sure you create a .env file at the root level with:
 
-env
-Copy
-Edit
-VITE_SUPABASE_URL=your_supabase_url
-VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_public_key
-
 
 ✨ Features
 🔍 Blog content scraping via Supabase Edge Function
