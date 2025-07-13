@@ -2,10 +2,6 @@
 
 Summarize lengthy blog posts into concise, meaningful summaries using AI — and translate them into Urdu with just one click.
 
-## 🌐 Live Demo
-
-👉 [Visit the Live Website](https://blog-summarizer-topaz.vercel.app/)
-
 ## 🚀 Project Overview
 
 This project is a modern web application that:
@@ -73,6 +69,10 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_public_key
 📜 Summary history (view + delete)
 
 ✅ User feedback via toast notifications
+
+## 🌐 Live Demo
+
+👉 [Visit the Live Website](https://blog-summarizer-topaz.vercel.app/)
 
 👨‍💻 Author
 Muhammad Mustafa
