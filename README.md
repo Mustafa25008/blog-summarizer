@@ -43,10 +43,9 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_public_key
 
 # 4. Run the development server
 npm run dev
+
 📁 Project Structure
-bash
-Copy
-Edit
+
 src/
 ├── components/        # UI components (buttons, cards, inputs)
 ├── integrations/      # Supabase client setup
