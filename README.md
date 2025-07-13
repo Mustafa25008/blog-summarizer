@@ -1,73 +1,79 @@
-# Welcome to your Lovable project
+# 🧠 Blog Summarizer
 
-## Project info
+Summarize lengthy blog posts into concise, meaningful summaries using AI — and translate them into Urdu with just one click.
 
-**URL**: https://lovable.dev/projects/a468d742-2fba-433e-ab60-75846969640d
+## 🌐 Live Demo
 
-## How can I edit this code?
+👉 [Visit the Live Website](https://blog-summarizer-topaz.vercel.app/)
 
-There are several ways of editing your application.
+## 🚀 Project Overview
 
-**Use Lovable**
+This project is a modern web application that:
+- Scrapes blog content from any public URL
+- Generates an English summary using AI logic
+- Translates the summary into Urdu using a custom keyword dictionary
+- Stores summaries in Supabase and allows you to manage/delete them
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a468d742-2fba-433e-ab60-75846969640d) and start prompting.
+## 🛠 Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Vite** — Lightning-fast frontend tooling  
+- **React + TypeScript** — Frontend framework with strong typing  
+- **Tailwind CSS** — Utility-first CSS for fast UI styling  
+- **ShadCN UI** — Accessible and beautifully styled component library  
+- **Supabase** — Backend-as-a-service for database and serverless functions  
+- **Lucide React** — Icon library for a clean, modern look
 
-**Use your preferred IDE**
+## 📦 Getting Started
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+To run this project locally:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
+```bash
+# 1. Clone the repository
+git clone <GIT_REPO_URL>
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
+# 2. Install dependencies
+npm install
+# or
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 3. Create an `.env` file in the root with the following keys:
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_public_key
+
+# 4. Run the development server
 npm run dev
-```
+📁 Project Structure
+bash
+Copy
+Edit
+src/
+├── components/        # UI components (buttons, cards, inputs)
+├── integrations/      # Supabase client setup
+├── hooks/             # Custom hooks like toast notifications
+├── pages/             # Main BlogSummarizer component
+├── main.tsx           # App entry point
+🔐 Environment Variables
+Make sure you create a .env file at the root level with:
 
-**Edit a file directly in GitHub**
+env
+Copy
+Edit
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_public_key
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
 
-**Use GitHub Codespaces**
+✨ Features
+🔍 Blog content scraping via Supabase Edge Function
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+🧠 AI-like summary generation logic
 
-## What technologies are used for this project?
+🌐 Urdu translation using a keyword dictionary
 
-This project is built with:
+📜 Summary history (view + delete)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+✅ User feedback via toast notifications
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/a468d742-2fba-433e-ab60-75846969640d) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+👨‍💻 Author
+Muhammad Mustafa
+GitHub
