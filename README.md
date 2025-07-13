@@ -68,6 +68,8 @@ Make sure you create a .env file at the root level with:
 
 ✅ User feedback via toast notifications
 
-👨‍💻 Author
+```
+## 👨‍💻 Author
+
 Muhammad Mustafa
 GitHub
