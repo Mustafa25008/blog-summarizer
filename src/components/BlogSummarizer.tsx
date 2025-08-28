@@ -276,37 +276,53 @@ export const BlogSummarizer = () => {
   const [recentSummaries, setRecentSummaries] = useState<BlogSummary[]>([]);
   const [showUrduTranslation, setShowUrduTranslation] = useState(false);
   const [urduTranslation, setUrduTranslation] = useState("");
-  const translateToUrdu = (text: string): string => {
-    let translatedText = text.toLowerCase();
-    Object.entries(urduTranslations).forEach(([english, urdu]) => {
-      const regex = new RegExp(`\\b${english}\\b`, "gi");
-      translatedText = translatedText.replace(regex, urdu);
+  // const translateToUrdu = (text: string): string => {
+  //   let translatedText = text.toLowerCase();
+  //   Object.entries(urduTranslations).forEach(([english, urdu]) => {
+  //     const regex = new RegExp(`\\b${english}\\b`, "gi");
+  //     translatedText = translatedText.replace(regex, urdu);
+  //   });
+  //   return translatedText;
+  // };
+  async function trns(text) {
+    toast({
+      title: "Translating! Please wait...",
+      description: "Translating summary to Urdu...",
+      duration: 5000,
     });
-    return translatedText;
-  };
-  const simulateAISummary = (text: string): string => {
-    const sentences = text.split(".").filter((s) => s.trim().length > 20);
-    const keywords = [
-      "technology",
-      "artificial intelligence",
-      "data",
-      "software",
-      "business",
-      "innovation",
-    ];
-    const importantSentences = sentences
-      .filter((sentence) =>
-        keywords.some((keyword) => sentence.toLowerCase().includes(keyword))
-      )
-      .slice(0, 3);
-    if (importantSentences.length === 0) {
-      return sentences.slice(0, 3).join(". ") + ".";
+    const transUrl = import.meta.env.VITE_webhook_Translate_Url;
+    const res = await fetch(transUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        text: text,
+      }),
+    });
+    if (res.ok) {
+      const data = await res.json();
+      //console.log(data[0].output);
+      //const re = document.getElementById("response");
+      //re.textContent = data[0].output;
+      toast({
+        title: "Success",
+        description: "Successfully translated to Urdu",
+      });
+      return data[0].output;
+    } else {
+      toast({
+        title: "Error",
+        description: "There was a problem translating to Urdu",
+        variant: "destructive",
+      });
     }
-    return importantSentences.join(". ") + ".";
-  };
-  const handleTranslateToUrdu = () => {
+    //return data[0].output;
+  }
+  const handleTranslateToUrdu = async () => {
     if (currentSummary) {
-      const translated = translateToUrdu(currentSummary.summary_english);
+      //const translated = translateToUrdu(currentSummary.summary_english);
+      const translated = await trns(currentSummary.summary_english); // <-- async call
       setUrduTranslation(translated);
       setShowUrduTranslation(true);
     }
@@ -374,9 +390,24 @@ export const BlogSummarizer = () => {
       if (scrapedData.error) {
         throw new Error(scrapedData.error);
       }
+      //n8n call to summarize the content
+      const sumUrl = import.meta.env.VITE_webhook_Summary_Url;
 
-      // Generate summary
-      const englishSummary = simulateAISummary(scrapedData.content);
+      const res = await fetch(sumUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          //toDo: "Summarize the following blog content in concise and clear English, focusing on key points and actionable insights.",
+          text: scrapedData.content,
+        }),
+      });
+      if (!res.ok) {
+        throw new Error("Failed to summarize the blog content");
+      }
+      const data1 = await res.json();
+
+      //summary from n8n
+      const outputText = data1[0].output;
 
       // Save to Supabase (without Urdu translation initially)
       const { data, error } = await supabase
@@ -385,7 +416,7 @@ export const BlogSummarizer = () => {
           url: url.trim(),
           title: scrapedData.title,
           original_text: scrapedData.content,
-          summary_english: englishSummary,
+          summary_english: outputText,
           summary_urdu: null,
         })
         .select()
@@ -459,7 +490,6 @@ export const BlogSummarizer = () => {
                 </>
               ) : (
                 <span className="text-black">Summarize</span>
-                
               )}
             </Button>
           </div>
